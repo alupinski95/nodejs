@@ -1,0 +1,1 @@
+module.exports = {firstname : "Darek",surname: "Kowalski"};
