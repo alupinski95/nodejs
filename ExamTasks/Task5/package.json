@@ -1,5 +1,5 @@
 {
-  "name": "task4",
+  "name": "task5",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
-    "request": "^2.88.2",
     "yargs": "^17.3.1"
   }
 }
