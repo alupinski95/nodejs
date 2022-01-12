@@ -21,7 +21,9 @@ function readDataFromFile(filename) {
 
 function saveNumberDataToFile(filename, data) {
     try {
-        fs.writeFileSync(saveFilePath + filename, JSON.stringify(data));
+        fs.writeFileSync(saveFilePath + filename, data.toString());
+        console.log("Data from request save succesfully in file: " + filename);
+
     } catch (error) {
         console.log("Error while saving file.");
         console.log(error);
@@ -32,7 +34,7 @@ function main() {
     const dataFromFile = JSON.parse(readDataFromFile(filepath));
     if (dataFromFile) {
         if (dataFromFile.number) {
-            let numberData = numberApi.getNumberData(dataFromFile.number, dataFromFile.filename, saveNumberDataToFile);
+            numberApi.getNumberData(dataFromFile.number, dataFromFile.filename, saveNumberDataToFile);
         } else {
             console.log("No number in file");
         }
