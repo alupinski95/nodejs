@@ -15,7 +15,7 @@ function getGithubUserData(userName) {
     return axios
         .get(url)
         .catch(function (error) {
-            console.log(error.message);
+            console.log("getGithubUserData Error" + error.message);
         });
 }
 
@@ -24,7 +24,7 @@ function getGithubRepositoryData(userName) {
     return axios
         .get(url)
         .catch(function (error) {
-            console.log(error.message);
+            console.log("getGithubRepositoryData Error" + error.message);
         });
 }
 
@@ -47,7 +47,7 @@ function getAllData(username, displayFolowersCounter = false) {
                 console.log("No repositories for user " + username);
             }
 
-
+            
             if (results[0]?.data?.location)
                 weratherApi.getWeather(results[0].data.location);
             else

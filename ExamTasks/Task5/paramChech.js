@@ -17,7 +17,6 @@ function chceckByValidator(validator, params) {
     }
 
     return isInputValid;
-
 }
 
 function chceckEntryParams(args, validator) {
