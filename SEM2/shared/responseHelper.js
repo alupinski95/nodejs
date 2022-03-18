@@ -20,10 +20,14 @@ const informationCodes = {
 
 const successCodes = {
     200: {
-
+        code: 200,
+        headers: headers.contentTypeJson,
+        message: "Request succes."
     },
     201: {
-
+        code: 201,
+        headers: headers.contentTypeJson,
+        message: "Request has been fulfilled.Resource created."
     },
     202: {
 

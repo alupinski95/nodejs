@@ -6,6 +6,18 @@ const port = 4600;
 var params = null;
 let userList = [];
 
+
+const userValidator = [
+    { name: "name", required: true },
+    { name: "username", required: true },
+    { name: "id", required: true },
+    { name: "email", required: true }
+];
+
+const idValidator = [
+    { name: "id", required: true }
+];
+
 const routes = {
     add: "/add",
     show: "/show",
@@ -50,7 +62,7 @@ const requestListener = function (req, res) {
 }
 
 function addUser(res) {
-    let validator = new ClassValidator(params, validatorUser);
+    let validator = new ClassValidator(params, userValidator);
     validator.chceckClassParams();
     let validRes = validator.valid;
     if (!validRes.isValid) {
@@ -64,16 +76,45 @@ function addUser(res) {
         let index = userList.length + 1;
         let newUser = new User(index, params.name, params.username, params.email);
         userList.push(newUser);
-        //response added succes
+        responseHelper.createResponse(
+            res,
+            clientErrors[201]
+        );
     }
 }
 
-function deleteUser() {
-
+function deleteUser(res) {
+    let validator = new ClassValidator(params, idValidator);
+    validator.chceckClassParams();
+    let validRes = validator.valid;
+    if (!validRes.isValid) {
+        responseHelper.createResponse(
+            res,
+            clientErrors[400],
+            validRes.message
+        );
+    }
+    else {
+        userList.splice(params.id, 1);
+        responseHelper.createResponse(
+            res,
+            clientErrors[200]
+        );
+    }
 }
 
 function showUser() {
-
+    let data = null;
+    if (!params.id) {
+        data = userList[params.id];
+    } else {
+        data = userList;
+    }
+    responseHelper.createResponse(
+        res,
+        clientErrors[200],
+        JSON.parse(data)
+    );
 }
 
 
@@ -82,9 +123,3 @@ const app = http.createServer(requestListener);
 
 app.listen(port);
 
-let userValidatorObject = [
-    { name: "name", required: true },
-    { name: "username", required: true },
-    { name: "id", required: true },
-    { name: "email", required: true }
-];
