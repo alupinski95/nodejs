@@ -9,7 +9,7 @@ const app = http.createServer((request, response) => {
     let res = 0;
     let code = 200;
     let message = "";
-
+    
     if (request.url.includes("/mnozenie")) {
         res = resultA * resultB;
     }
