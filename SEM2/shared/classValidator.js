@@ -1,21 +1,28 @@
-const paramErrorMessage = "Parameters can't be empty! \n";
-const paramRequiredMessage = `Required parametr ${paramName} \n`;
 
-class ClassValidator {
+
+'use strict';
+const paramErrorMessage = "Parameters can't be empty! \n";
+
+module.exports = class ClassValidator {
     constructor(params, validator) {
         this.valid = { isValid: true, message: "" };
         this.params = params;
         this.validator = validator;
     }
     get valid() {
+        debugger
         return this.valid;
     }
+    set valid(valid) {
+        this.valid.isValid = valid.isValid;
+        this.valid.message = valid.message;
+      }
     chceckByValidator() {
+        debugger
         this.validator.forEach(element => {
             if (element.required) {
                 if (!this.params[element.name]) {
-                    this.valid.message = "Required parametr " + element.name + " is empty or null \n";
-                    this.valid.isValid = false;
+                    this.valid({ isValid: false, message: "Required parametr " + element.name + " is empty or null \n" });
                 }
             }
         });
@@ -23,11 +30,10 @@ class ClassValidator {
 
     chceckClassParams() {
         if (!params) {
-            this.valid.message = paramErrorMessage;
+            this.valid({ isValid: false, message:paramErrorMessage });
         }
         if (!validator) {
-            this.valid.isValid = true;
-            this.valid.message = null;
+            this.valid({ isValid: true, message:null });
         }
 
         chceckByValidator();

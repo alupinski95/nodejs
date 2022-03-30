@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "c64423bc-382a-4687-9972-02752d81ed1a",
+		"name": "NOde js",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Homework2",
+			"item": [
+				{
+					"name": "H2/Task2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4700/Arek",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"Arek"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "H2Task3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4700/5/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"5",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "H2Task4M",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4700/mnozenie/5/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"mnozenie",
+								"5",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "H2Task4Dziel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4700/dzielenie/5/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"dzielenie",
+								"5",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "H2Task4Dod",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4700/dodawanie/5/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"dodawanie",
+								"5",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "H2Task4Odej",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4700/odejmowanie/5/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"odejmowanie",
+								"5",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task6Adduser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4700/user/add/Arek23/arek/dsa@asd.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"user",
+								"add",
+								"Arek23",
+								"arek",
+								"dsa@asd.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task6DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4700/user/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"user",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task6ShowUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4700/user/show/null",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"user",
+								"show",
+								"null"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task6AddPost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"fadsfv adsf a132\",\r\n    \"body\": \"fdakshuf dlaisijk li dsafja ijdsalk idsl ik asdf likjdsfa  jikldf sajikl fdsjikf dsji sdfjifldjs ia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4700/posts/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"posts",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task6RemovePost",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4700/posts/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"posts",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task6ShowPost",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "text/html",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4700/posts/show",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4700",
+							"path": [
+								"posts",
+								"show"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

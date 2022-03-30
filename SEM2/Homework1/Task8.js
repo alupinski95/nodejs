@@ -5,7 +5,7 @@ const app = http.createServer((request, response) => {
     var params = url.parse(request.url, true).query;
 
     response.writeHead(200, { "Content-type": "application/json" });
-    response.write(JSON.parse(params));
+    response.write(JSON.stringify(params));
 
     response.end();
 });
