@@ -11,8 +11,8 @@ let paramValidator = [
 ];
 
 
-function main() {
-    let validateParams = params.chceckEntryParams(process.argv, paramValidator);
+function main() {   
+    let validateParams = params.checkEntryParams(process.argv, paramValidator);
     if (!validateParams) {
         console.log("Something go wrong with parameters.");
         return;

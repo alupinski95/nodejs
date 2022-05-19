@@ -19,7 +19,7 @@ function chceckByValidator(validator, params) {
     return isInputValid;
 }
 
-function chceckEntryParams(args, validator) {
+function checkEntryParams(args, validator) {
     if (!args) return;
     let consoleParams = yargs(hideBin(args)).argv;
     if (!validator || chceckByValidator(validator, consoleParams._)) return consoleParams._;
@@ -27,5 +27,5 @@ function chceckEntryParams(args, validator) {
 }
 
 module.exports = {
-    chceckEntryParams: chceckEntryParams
+    checkEntryParams: checkEntryParams
 }

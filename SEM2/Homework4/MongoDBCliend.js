@@ -1,8 +1,36 @@
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+require('dotenv').config();
 
-const uri = `mongodb+srv://alupinski:${process.env.passwordMongoDb}@cluster0.dmrsj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+const { MongoClient } = require('mongodb');
+
+let databaseCollections=[];
+let db;
+const init = () =>{
+    MongoClient.connect(process.env.MONGODB_CONNECTION,{useNewUrlParser:true,useUnifiedTopology:true})
+    .then((client)=>{
+
+        db = client.db(process.env.MONGODB_DBNAME);
+        taskCollection = db.collection(taskCOllectionName);
+    })
+    .catch(err=> console.log(err))
+}
+
+const getCollectionByName =(collectionName)=>{
+    if(!databaseCollections[collectionName]){
+        try{
+            
+        }
+        catch(erroe){
+
+        }
+    }
+    return databaseCollections[collectionName];
+}
+
+module.exports={
+    init,
+
+}
 
 async function addElementToCollection(collectionName,element){
     try{
