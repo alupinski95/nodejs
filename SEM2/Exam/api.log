@@ -1,0 +1,73 @@
+Error while adding!
+ TypeError: Cannot read properties of undefined (reading 'collection')
+
+Method POST URL /Advertise/add Date: undefined
+
+Error while adding!
+ TypeError: Cannot read properties of undefined (reading 'collection')
+
+TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Topology'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'topology' closes the circle
+
+Method POST URL /Advertise/add Date: undefined
+
+Error while adding!
+ TypeError: Cannot read properties of undefined (reading 'collection')
+
+TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Topology'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'topology' closes the circle
+
+Method POST URL /Advertise/add Date: undefined
+
+Error while adding!
+ TypeError: Cannot read properties of undefined (reading 'collection')
+
+TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Topology'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'topology' closes the circle
+
+TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Topology'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'topology' closes the circle
+
+Method POST URL /Advertise/add Date: undefined
+
+Error while adding!
+ TypeError: Cannot read properties of undefined (reading 'collection')
+
+Method POST URL /Advertise/add Date: undefined
+
+Error while adding!
+ TypeError: Cannot read properties of undefined (reading 'collection')
+
+Method POST URL /Advertise/add Date: undefined
+
+Error while adding!
+ TypeError: Cannot read properties of undefined (reading 'collection')
+
+Method POST URL /Advertise/add Date: undefined
+
+Error while adding!
+ TypeError: Cannot read properties of undefined (reading 'collection')
+
+Method POST URL /Advertise/add Date: undefined
+
+Error while adding!
+ TypeError: Cannot read properties of undefined (reading 'collection')
+
+Method POST URL /Advertise/add Date: undefined
+
+Method POST URL /Advertise/add Date: undefined
+
+Error while adding!
+ TypeError: Cannot read properties of undefined (reading 'collection')

@@ -6,16 +6,29 @@
 
 
 [1 punkt] Aplikacja umożliwia dodawanie ogłoszenia
+
 [2 punkty] Aplikacja umożliwia zwracanie wszystkich ogłoszeń oraz pojedynczego ogłoszenia
+
 [1 punkt] Aplikacja umożliwia usuwanie wybranego ogłoszenia
+
 [1 punkt] Aplikacja umożliwia modyfikowanie wybranego ogłoszenia
+
 [1 punkt za każde kryterium wyszukiwania/maksymalnie 5 punktów] Aplikacja pozwala na wyszukiwanie ogłoszeń według różnych kryteriów 
 (tytuł, opis, zakres data, zakres ceny itp).
+
 [4-8 punktów] Aplikacja zapisuje ogłoszenia w bazie danych [8 punktów] lub plikach [4 punkty]
-[2 punkty] Usuwanie i modyfikowanie ogłoszeń jest zabezpieczone hasłem (np. middleware weryfikujące hasło), przy braku dostępu zwracany 
-jest stosowny komunikat i kod odpowiedzi HTTP. Nie jest wymagane zabezpieczenie na poziomie produkcyjnym, raczej podstawowe rozwiązanie.
+
+
+
+
 [4 punkty] Aplikacja ma 3 zdefiniowanych na stałe użytkowników, każdy z nich może usuwać i modyfikować tylko te ogłoszenia które sam dodał,
  przy braku dostępu zwracany jest stosowny komunikat i kod odpowiedzi HTTP
+
+[2 punkty] Usuwanie i modyfikowanie ogłoszeń jest zabezpieczone hasłem (np. middleware weryfikujące hasło), przy braku dostępu zwracany 
+jest stosowny komunikat i kod odpowiedzi HTTP. Nie jest wymagane zabezpieczenie na poziomie produkcyjnym, raczej podstawowe rozwiązanie.
+
+
+
 [3 punkty] Aplikacja po uruchomieniu z parametrem (np node app.js debug) zapisuje w pliku czas odebrania każdego żądania,
  metodę HTTP oraz adres na który przyszło żądanie
  
