@@ -71,3 +71,59 @@ Method POST URL /Advertise/add Date: undefined
 
 Error while adding!
  TypeError: Cannot read properties of undefined (reading 'collection')
+
+Method GET URL /heartbeat Date: Sun Jun 19 2022 11:27:41 GMT+0200 (Central European Summer Time)
+
+Method POST URL /Advertise/add Date: Sun Jun 19 2022 11:28:55 GMT+0200 (Central European Summer Time)
+
+Method GET URL /Advertise/get Date: Sun Jun 19 2022 13:26:01 GMT+0200 (Central European Summer Time)
+
+Method GET URL /Advertise/get Date: Sun Jun 19 2022 13:26:38 GMT+0200 (Central European Summer Time)
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 13:28:09 GMT+0200 (Central European Summer Time)
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 13:28:16 GMT+0200 (Central European Summer Time)
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 13:28:37 GMT+0200 (Central European Summer Time)
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 13:29:03 GMT+0200 (Central European Summer Time)
+
+Error while getting one element!
+ MongoInvalidArgumentError: Query filter must be a plain object or ObjectId
+
+Error while getting one element!
+ MongoInvalidArgumentError: Query filter must be a plain object or ObjectId
+
+Error while getting one element!
+ MongoInvalidArgumentError: Query filter must be a plain object or ObjectId
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 17:12:30 GMT+0200 (Central European Summer Time)
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 17:12:54 GMT+0200 (Central European Summer Time)
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 17:14:08 GMT+0200 (Central European Summer Time)
+
+Error while getting one element!
+ TypeError: Assignment to constant variable.
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 17:14:30 GMT+0200 (Central European Summer Time)
+
+Error while getting one element!
+ TypeError: Assignment to constant variable.
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 17:14:40 GMT+0200 (Central European Summer Time)
+
+Error while getting one element!
+ TypeError: Assignment to constant variable.
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 17:14:47 GMT+0200 (Central European Summer Time)
+
+Error while getting one element!
+ TypeError: Assignment to constant variable.
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 17:17:22 GMT+0200 (Central European Summer Time)
+
+Error while getting one element!
+ TypeError: Assignment to constant variable.
+
+Method GET URL /Advertise/get?id=62aeec581f54f9c254417bb6 Date: Sun Jun 19 2022 17:20:35 GMT+0200 (Central European Summer Time)

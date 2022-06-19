@@ -8,4 +8,5 @@ module.exports = class AdObject {
         this.price = price;
         this.addDate = addDate;
     }
+
 }

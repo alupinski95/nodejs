@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "10842814-273f-422d-a0a0-5ddaefe34dd6",
+		"name": "ExamCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "heartbeat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}{{port}}/heartbeat",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"heartbeat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "404 error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}{{port}}/error",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"error"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddAdvertise",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "admin:!QAZxsw2",
+						"type": "default"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"title\",\r\n    \"description\": \"description\",\r\n    \"author\": \"author\",\r\n    \"category\": \"category\",\r\n    \"tagArray\": [\"Car\",\"Radio\"],\r\n    \"price\": 102.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{port}}/{{AdvertiseUrl}}/add",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"{{AdvertiseUrl}}",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

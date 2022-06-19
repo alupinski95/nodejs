@@ -12,7 +12,7 @@ let isDebugMode = false;
 const logCallbackMiddleware = (req, res, next) => {
     if (isDebugMode) {
         logCallbackToFile(
-            `Method ${req.method} URL ${req.originalUrl} Date: ${req.Date}`
+            `Method ${req.method} URL ${req.originalUrl} Date: ${new Date()}`
         );
     }
     next();

@@ -26,11 +26,16 @@ const authMiddleware = (req, res, next) => {
 
 };
 
+const getAuthUserId = () => {
+    return authUserId;
+}
+
 const isUserCanModify = (creeatorId) => {
     return authUserId === creeatorId;
 }
 
 module.exports = {
     authMiddleware: authMiddleware,
-    isUserCanModify: isUserCanModify
+    isUserCanModify: isUserCanModify,
+    getAuthUserId: getAuthUserId
 };
