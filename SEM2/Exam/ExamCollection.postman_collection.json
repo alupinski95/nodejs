@@ -45,8 +45,8 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "authorization",
-						"value": "admin:!QAZxsw2",
+						"key": "{{authorization}}",
+						"value": "{{authPass}}",
 						"type": "default"
 					},
 					{
@@ -58,7 +58,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"title\",\r\n    \"description\": \"description\",\r\n    \"author\": \"author\",\r\n    \"category\": \"category\",\r\n    \"tagArray\": [\"Car\",\"Radio\"],\r\n    \"price\": 102.00\r\n}",
+					"raw": "{\r\n    \"title\": \"title\",\r\n    \"description\": \"description\",\r\n    \"category\": \"category\",\r\n    \"tagArray\": [\"Car\",\"Radio\"],\r\n    \"price\": 102.00\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -73,6 +73,60 @@
 					"path": [
 						"{{AdvertiseUrl}}",
 						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOne",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "{{authorization}}",
+						"value": "{{authPass}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{url}}{{port}}/{{AdvertiseUrl}}/get?id=62aeec581f54f9c254417bb6",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"{{AdvertiseUrl}}",
+						"get"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "62aeec581f54f9c254417bb6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "{{authorization}}",
+						"value": "{{authPass}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{url}}{{port}}/{{AdvertiseUrl}}/get",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"{{AdvertiseUrl}}",
+						"get"
 					]
 				}
 			},
