@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "10842814-273f-422d-a0a0-5ddaefe34dd6",
+		"_postman_id": "59f2a6d5-384f-4d30-ab22-8d02732607b1",
 		"name": "ExamCollection",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17192798"
 	},
 	"item": [
 		{
@@ -58,7 +59,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"title\",\r\n    \"description\": \"description\",\r\n    \"category\": \"category\",\r\n    \"tagArray\": [\"Car\",\"Radio\"],\r\n    \"price\": 102.00\r\n}",
+					"raw": "{\r\n    \"title\": \"qwer\",\r\n    \"description\": \"description\",\r\n    \"category\": \"category\",\r\n    \"tagArray\": [\"Car\",\"Radio\"],\r\n    \"price\": 102.00\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,7 +91,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}{{port}}/{{AdvertiseUrl}}/get?id=62aeec581f54f9c254417bb6",
+					"raw": "{{url}}{{port}}/{{AdvertiseUrl}}/get?id=62b426ef7a5fe07bce40229f",
 					"host": [
 						"{{url}}{{port}}"
 					],
@@ -101,7 +102,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "62aeec581f54f9c254417bb6"
+							"value": "62b426ef7a5fe07bce40229f"
 						}
 					]
 				}
@@ -116,17 +117,87 @@
 					{
 						"key": "{{authorization}}",
 						"value": "{{authPass}}",
-						"type": "default"
+						"type": "default",
+						"disabled": true
 					}
 				],
 				"url": {
-					"raw": "{{url}}{{port}}/{{AdvertiseUrl}}/get",
+					"raw": "{{url}}{{port}}/{{AdvertiseUrl}}/getAll",
 					"host": [
 						"{{url}}{{port}}"
 					],
 					"path": [
 						"{{AdvertiseUrl}}",
-						"get"
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "{{authorization}}",
+						"value": "{{authPass}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}{{port}}/{{AdvertiseUrl}}/delete?id=62aeec581f54f9c254417bb6",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"{{AdvertiseUrl}}",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "62aeec581f54f9c254417bb6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "{{authorization}}",
+						"value": "{{authPass2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"qwer\",\r\n    \"description\": \"description1\",\r\n    \"category\": \"category2222\",\r\n    \"tagArray\": [\"Car2\",\"Radio2\"],\r\n    \"price\": 1.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{port}}/{{AdvertiseUrl}}/update?id=62b432a62f3f248db097b1c0",
+					"host": [
+						"{{url}}{{port}}"
+					],
+					"path": [
+						"{{AdvertiseUrl}}",
+						"update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "62b432a62f3f248db097b1c0"
+						}
 					]
 				}
 			},
