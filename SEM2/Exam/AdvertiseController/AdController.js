@@ -8,28 +8,48 @@ const router = express.Router();
 
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json());
-router.use(authMiddleware);
 
-// function sendResponseByResult(result, res) {
-//     if (result) {
-//         res.status(201);
-//         res.send(result);
-//     }
-//     else {
-//         res.status(500);
-//         res.send('Internal Server Error');
-//     }
-// }
+
+function sendResponseByResult(result, res) {
+    if (result) {
+        res.status(201);
+        res.send(result);
+    }
+    else {
+        const status = collectionOperations.getResponseError();
+        res.status(status.statusCode);
+        res.send(status.message);
+    }
+}
 
 function checkIdParams(req, res) {
-    if (!req.params.id) {
+    if (!req.query.id) {
         res.status(500);
         res.send('Internal Server Error');
     }
-    return req.params.id;
+    return req.query.id;
 }
+router.get('/getAll', async (req, res) => {
+    let result = await collectionOperations.getAll(collectionName);
+    sendResponseByResult(result, res);
+});
+router.get('/get?:id', async (req, res) => {
+    let idToRemove = checkIdParams(req, res);
+
+    let result = await collectionOperations.getOne(collectionName, idToRemove);
+    sendResponseByResult(result, res);
+
+});
+
+
+
+router.use(authMiddleware);
 
 router.post('/add', async (req, res) => {
+    if(!req.body.title || !req.body.description){
+            res.status(400);
+            res.send('Title and Description are required');
+        }
     let newAdv = new AdObject(
         req.body.title,
         req.body.description,
@@ -39,38 +59,23 @@ router.post('/add', async (req, res) => {
         req.body.price,
         (new Date()).toLocaleDateString()
     );
-    var result = await collectionOperations.add(collectionName, newAdv);
+    let result = await collectionOperations.add(collectionName, newAdv);
 
-    res.status(201);
-    res.send(result);
-    //sendResponseByResult(addRes, res);
+    sendResponseByResult(result, res);
 });
 
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/delete?:id', async (req, res) => {
     let idToRemove = checkIdParams(req, res);
 
-    var result = await collectionOperations.delete(collectionName, idToRemove);
+    let result = await collectionOperations.delete(collectionName, idToRemove);
 
-    res.status(200);
-    res.send(result);
+    sendResponseByResult(result, res);
 });
 
-router.get('/get?:id', async (req, res) => {
+
+
+router.patch('/update?:id', async (req, res) => {
     let idToRemove = checkIdParams(req, res);
-
-    var result = await collectionOperations.getOne(collectionName, idToRemove);
-
-    res.status(200);
-    res.send(result);
-});
-
-router.get('/get', async (req, res) => {
-    let posts = await collectionOperations.getAll(collectionName);
-    res.status(200);
-    res.send(posts);
-});
-
-router.patch('/update', async (req, res) => {
     let postToUpdate = new AdObject(
         req.body.title,
         req.body.description,
@@ -80,10 +85,9 @@ router.patch('/update', async (req, res) => {
         req.body.price,
         (new Date()).toLocaleDateString()
     );
-    var result = await collectionOperations.update(collectionName, postToUpdate);
+    let result = await collectionOperations.update(collectionName, postToUpdate,idToRemove);
 
-    res.status(201);
-    res.send(result);
+    sendResponseByResult(result, res);
 });
 
 module.exports = router;

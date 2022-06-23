@@ -1,28 +1,42 @@
 
+
 const AdObject = require('./AdvertiseController/AdObject');
 const auth = require('./authMiddleware');
 const client = require('./mongoDBCliend').getDb;
 const errorLog = require('./errorLog').logError;
 
-function updateElement(basicElement, elementToUpdate) {
-    basicElement.title = elementToUpdate.title ?? basicElement.title;
-    basicElement.description = elementToUpdate.description ?? basicElement.description;
-    basicElement.category = elementToUpdate.category ?? basicElement.category;
-    basicElement.tagArray = elementToUpdate.tagArray ?? basicElement.tagArray;
-    basicElement.price = elementToUpdate.price ?? basicElement.price;
+var respObj = {
+    statusCode:0,
+    message:"",
+}
+function getResponseError(){
+    return respObj;
+}
+function setResponseError(code,msg){
+    respObj.statusCode=code;
+    respObj.message=msg;
 }
 
-
+function catchError(error){
+    setResponseError(500,error);
+    errorLog(error);
+}
+function checkResult(result,msg,code){
+    if (!result) {
+        setResponseError(code,msg)    
+        throw `${code} - ${msg}`;
+    }
+}
 async function addElementToCollection(collectionName, element) {
     try {
         const collection = client().collection(collectionName);
         const result = await collection.insertOne(element);
-        if (!result) {
-            throw '500 - Internal Server Error';
-        }
+
+        checkResult(result,500,'Internal Server Error')
+        
         return result;
     } catch (error) {
-        errorLog("Error while adding!\n " + error);
+        catchError("Error while adding!\n " + error);
     }
 }
 
@@ -30,65 +44,64 @@ async function deleteElementFromCollection(collectionName, elementId) {
     try {
         const collection = client().collection(collectionName);
         let element = await collection.find().toArray();
-        element = element.find(x => x.toString().includes(elementId));
+        element = element.find(x => x._id.toString().includes(elementId));
 
-        if (!auth.isUserCanModify(element.CreatorId)) {
-            throw '401 - unauthorized';
+        if (!auth.isUserCanModify(element.author)) {
+            checkResult(null,401,'unauthorized');
+            
         }
         if (!element) {
-            throw '404 - Element not found'
+            checkResult(null,404,'Element not found');
         }
         const result = await collection.deleteOne(element);
+        checkResult(result,500,'Internal Server Error')
         return result;
     } catch (error) {
-        errorLog("Error while delete element!\n " + error);
+        catchError("Error while delete element!\n " + error);
     }
 }
 
-async function updateElementInCollection(collectionName, elementToUpdate) {
+async function updateElementInCollection(collectionName, elementToUpdate,elementId) {
     try {
         const collection = client().collection(collectionName);
         const options = { upsert: true };
-        const element = collection.find(x => x._id === elementToUpdate.id);
-        if (!auth.isUserCanModify(element.CreatorId)) {
-            throw '401 - unauthorized';
-        }
+        let element = await collection.find().toArray();
+        element = element.find(x => x._id.toString().includes(elementId));
         if (!element) {
-            throw '404 - Element not found'
+            checkResult(null,404,'Element not found');
         }
-        updateElement(element, elementToUpdate);
-        const result = await collection.updateOne(element, options);
+        if (!auth.isUserCanModify(element.author)) {
+            checkResult(null,401,'unauthorized'); 
+        }
+        
+        const result = await collection.updateOne({_id:element._id}, { $set:elementToUpdate}, options);
         return result;
     } catch (error) {
-        errorLog("Error while update!\n " + error);
+        catchError("Error while update!\n " + error);
     }
 }
 async function getAllElements(collectionName) {
     try {
         const collection = client().collection(collectionName);
         const result = await collection.find().toArray();
-        if (!result) {
-            throw '404 - Element not found';
-        }
+        checkResult(result,404,'Element not found');
         return result;
     } catch (error) {
-        errorLog("Error while getting all elements!\n " + error);
+        catchError("Error while getting all elements!\n " + error);
     }
 }
 
 async function getOneElement(collectionName, elementId) {
     try {
         const collection = client().collection(collectionName);
-
+        
         let result = await collection.find().toArray();
-        result = result.find(x => x.toString().includes(elementId));
+        result = result.find(x => x._id.toString().includes(elementId));
 
-        if (!result) {
-            throw '404 - Element not found';
-        }
+        checkResult(result,404,'Element not found');
         return result;
     } catch (error) {
-        errorLog("Error while getting one element!\n " + error);
+        catchError("Error while getting one element!\n " + error);
     }
 }
 module.exports = {
@@ -96,5 +109,6 @@ module.exports = {
     delete: deleteElementFromCollection,
     update: updateElementInCollection,
     getAll: getAllElements,
-    getOne: getOneElement
+    getOne: getOneElement,
+    getResponseError:getResponseError
 }
